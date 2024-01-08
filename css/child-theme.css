@@ -22001,6 +22001,8 @@ input[type=checkbox] {
   -o-object-position: center;
   object-position: center;
   transition: transform 300ms ease;
+  aspect-ratio: 16/9;
+  width: 100%;
 }
 .blog_grid__inner {
   background-color: var(--col-green-600);
