@@ -1,0 +1,16 @@
+.usp-block {
+    &__icon {
+        text-align: center;
+        color: var(--col-green-600);
+        margin-block: 0.5rem;
+        font-size: 1.4rem;
+        .fa-inverse {
+            color: var(--col-gold-600);
+        }
+    }
+    &__content {
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 700;
+    }
+}

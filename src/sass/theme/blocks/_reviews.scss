@@ -1,0 +1,41 @@
+.reviews_slider {
+    .title {
+        text-align: center;
+    }
+    &.dark {
+        background-color: var(--col-green-600);
+        color: white;
+        .title {
+            color: var(--col-gold-400);
+        }
+    }
+
+    .testimonial {
+        max-width: 70ch;
+        margin: 0 auto;
+        a {
+            color: inherit;
+        }
+        a:hover {
+            text-decoration: none !important;
+            color: inherit;
+        }
+        .testimonial__content {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        .testimonial__title {
+            font-weight: 600;
+            text-align: right;
+            text-transform: uppercase;
+        }
+    }
+}
+.quote {
+    margin-bottom: 1rem;
+}
+.cite {
+    font-weight: 600;
+    text-align: right;
+    text-transform: uppercase;
+}

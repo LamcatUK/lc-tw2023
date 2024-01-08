@@ -1,0 +1,14 @@
+.text_image_5050 {
+    &__content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__image {
+        // display: flex;
+        // justify-content: center;
+        img {
+            object-fit: contain;
+        }
+    }
+}

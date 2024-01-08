@@ -1,0 +1,55 @@
+.wpcf7 {
+    max-width: 100%;
+}
+
+label {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.wpcf7-list-item {
+    margin-left: 0;
+    label {
+        font-weight: 400;
+        font-size: 0.888rem;
+        text-transform: unset;
+    }
+}
+
+// .wpcf7-submit {
+//     background-color: var(--col-green-600);
+//     border: 2px solid var(--col-gold-600);
+//     color: var(--col-gold-600);
+//     text-transform: uppercase;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     letter-spacing: 1px;
+//     transition: all 0.2s ease;
+//     box-shadow: 0 2px 3px 2px rgba(#000000, 0.2);
+//     &:hover {
+//         background-color: var(--col-gold-600);
+//         border-color: var(--col-gold-600);
+//         color: var(--col-green-600) !important;
+//         box-shadow: none;
+//         transform: translateY(2px)
+//     }
+// }
+
+.wpcf7-radio {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    span {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+    }
+    label {
+        font-weight: 400;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+input[type="checkbox"] {
+    accent-color: var(--col-green-600);
+}
