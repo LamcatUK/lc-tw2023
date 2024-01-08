@@ -22426,12 +22426,6 @@ svg.chevron {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 992px) {
-  .sib_nav__grid,
-  .child_nav__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 .sib_nav__card:hover img,
 .child_nav__card:hover img {
   transform: scale(1.05);
@@ -22457,6 +22451,18 @@ svg.chevron {
   color: var(--col-gold-600);
   background-color: var(--col-green-600);
   padding: 1rem;
+}
+
+@media (min-width: 992px) {
+  .child_nav__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .sib_nav__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 #main {
