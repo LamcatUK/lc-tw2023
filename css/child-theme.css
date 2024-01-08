@@ -22415,6 +22415,50 @@ svg.chevron {
   max-width: 200px;
 }
 
+.sib_nav__grid,
+.child_nav__grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .sib_nav__grid,
+  .child_nav__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .sib_nav__grid,
+  .child_nav__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.sib_nav__card:hover img,
+.child_nav__card:hover img {
+  transform: scale(1.05);
+}
+.sib_nav__card .img_container,
+.child_nav__card .img_container {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+.sib_nav__card img,
+.child_nav__card img {
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  width: 100%;
+  transition: transform 300ms ease;
+}
+.sib_nav__card .card_inner,
+.child_nav__card .card_inner {
+  color: var(--col-gold-600);
+  background-color: var(--col-green-600);
+  padding: 1rem;
+}
+
 #main {
   margin-top: calc(var(--h-top--sm) * -1);
 }
