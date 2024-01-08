@@ -6,7 +6,7 @@ get_header();
 ?>
 <main id="main" class="padding-top">
     <?php
-$bg = wp_get_attachment_image_url(get_field('hero_image', 'options'), 'full') ?: '/wp-content/uploads/2021/05/groundworks-hero.jpg';
+$bg = '/wp-content/uploads/2021/05/groundworks-hero.jpg';
 ?>
     <section class="hero mb-4" data-parallax="scroll"
         data-image-src="<?=get_the_post_thumbnail_url(get_the_ID(), 'full')?>">
