@@ -17,7 +17,7 @@ $bg = '/wp-content/uploads/2021/05/groundworks-hero.jpg';
                     <div class="text-center text-lg-start">
                         <h1>
                             <span class="hero__title">404 - Page Not Found</span>
-                            <span class="hero__content mb-4">WE CAN'T SEEM TO FIND THE PAGE YOU'RE LOOKING FOR</span>
+                            <span class="hero__content mb-4">WE CAN'T FIND THE PAGE YOU'RE LOOKING FOR</span>
                         </h1>
                         <a href="/get-a-quote/" class="btn btn-green mb-3">Return to Homepage</a>
                     </div>
