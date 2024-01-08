@@ -15,11 +15,11 @@ $bg = '/wp-content/uploads/2021/05/groundworks-hero.jpg';
             <div class="row">
                 <div class="col-lg-8 py-5 d-lg-flex align-items-center z-index-0">
                     <div class="text-center text-lg-start">
-                        <h1 class="mb-4">404 - Page Not Found</h1>
-                        <div class="hero__content fs-5 mb-4">We can't seem to find the page you're looking for</div>
-                        <div class="hero__cta">
-                            <a class="btn btn-default--secondary mb-4" href="/">Return to Homepage</a>
-                        </div>
+                        <h1>
+                            <span class="hero__title">404 - Page Not Found</span>
+                            <span class="hero__content mb-4">WE CAN'T SEEM TO FIND THE PAGE YOU'RE LOOKING FOR</span>
+                        </h1>
+                        <a href="/get-a-quote/" class="btn btn-green mb-3">Return to Homepage</a>
                     </div>
                 </div>
             </div>
