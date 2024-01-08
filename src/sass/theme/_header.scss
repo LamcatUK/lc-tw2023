@@ -2,7 +2,7 @@
     background-color: var(--col-green-600);
     backdrop-filter: blur(2px);
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
-    padding: 0.5rem 0 0 0;
+    padding: 0.5rem 0;
     font-size: 1rem;
     @media all and (min-width:992px) {
         font-size: 0.9rem;
@@ -10,11 +10,6 @@
 
     a::after {
         content: '' !important;
-    }
-
-    min-height: 65px;
-    @media (width >= 576px) {
-        min-height: 70px;
     }
 }
 
@@ -66,17 +61,10 @@
         font-size: 1.2rem;
     }
 
-    .nav-item a {
-        display: inline-block;
-        margin-right: 0.5rem;
-        .fab {
-            font-size: 1.2rem;
-        }
-    }
-
 }
 
-#navbar {
+#main-nav {
+
     padding: 0;
     line-height: 1;
     // text-transform: uppercase;
@@ -157,7 +145,10 @@
     color: var(--col-gold-600);
 }
 
-#primaryNav,
-#topNav {
-    transition: none;
+#top-nav .nav-item a {
+    display: inline-block;
+    margin-right: 0.5rem;
+    .fab {
+        font-size: 1.2rem;
+    }
 }

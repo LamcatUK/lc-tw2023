@@ -20,16 +20,12 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
     </section>
     <div class="container-xl">
         <div class="row g-4 pb-4">
-            <div class="col-lg-9 order-2 order-lg-1">
+            <div class="col-lg-9 order-2">
                 <h1 class="blog__title"><?=get_the_title()?></h1>
-                <?php
-                if ($img) {
-                    ?>
                 <img src="<?=$img?>" alt="" class="blog__image">
-                    <?php
-                }
-                $count = estimate_reading_time_in_minutes( get_the_content(), 200, true, true );
-                echo $count;
+            <?php
+            $count = estimate_reading_time_in_minutes( get_the_content(), 200, true, true );
+            echo $count;
 
     foreach ($blocks as $block) {
         if ($block['blockName'] == 'core/heading') {
@@ -44,15 +40,14 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
     }
             ?>
             </div>
-            <div class="col-lg-3 order-1 order-lg-2">
+            <div class="col-lg-3 order-1">
                 <?php
                 if ($sidebar) {
                     ?>
                 <div class="sidebar">
                     <div class="h5 d-none d-lg-block">Quick Links</div>
-                    <div class="h5 d-lg-none collapsed" data-bs-toggle="collapse" href="#links" role="button">Quick Links</div>
+                    <div class="h5 d-lg-none" data-bs-toggle="collapse" href="#links" role="button">Quick Links</div>
                     <div class="collapse d-lg-block" id="links">
-                        <ul>
                         <?php
                         foreach ($sidebar as $heading => $id) {
                             ?>
@@ -60,7 +55,6 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
                             <?php
                         }
                         ?>
-                        </ul>
                     </div>
                 </div>
                     <?php
@@ -69,8 +63,8 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
             </div>
         </div>
         <section class="related pb-5">
-            <h3><span>Related</span> Posts</h3>
-            <div class="related_grid">
+            <h3><span>Related</span> Guides</h3>
+            <div class="row g-4">
             <?php
             $cats = get_the_category();
             $ids = wp_list_pluck($cats,'term_id');
@@ -80,26 +74,36 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
             ));
             while ($r->have_posts()) {
                 $r->the_post();
-                $img = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-                if (!$img) {
-                    $img = get_stylesheet_directory_uri() . '/img/default.png';
-                }
                 ?>
-                <a class="blog_card" href="<?=get_the_permalink()?>">
-                    <div class="blog_card__image_container">
-                        <img src="<?=$img?>" alt="" class="blog_card__image">
-                    </div>
-                    <div class="blog_card__content">
-                        <h3 class="blog_card__title"><?=get_the_title()?></h3>
-                    </div>
-                </a>
+                <div class="col-md-6 col-xl-3">
+                    <a class="blog_card" href="<?=get_the_permalink()?>">
+                        <img src="<?=get_the_post_thumbnail_url(get_the_ID(),'large')?>" alt="" class="blog_card__image">
+                        <div class="blog_card__content">
+                            <h3 class="blog_card__title"><?=get_the_title()?></h3>
+                        </div>
+                    </a>
+                </div>
                 <?php
             }
             ?>
             </div>
         </section>
     </div>
-
+<section class="cta_block cta_block--light py-5">
+    <div class="container-xl">
+        <h2 class="cta__title">Get A <span>Cash Offer</span> For Your Property</h2>
+        <div class="cta__intro mb-4"><?=get_field('cta_intro')?></div>
+        <div class="form-container">
+            <div class="form-inner d-flex flex-wrap gap-4 justify-content-center">
+                <div class="text-center">Get a <span>Free Cash Offer</span> today</div>
+                <div class="d-sm-flex w-100 w-sm-auto">
+                    <input type="text" class="form-control mb-3 mb-sm-0 me-2" placeholder="Enter your Post Code">
+                    <button class="d-block w-100 w-sm-auto d-sm-inline btn btn--accent">Get Offer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </main>
 <?php
 get_footer();

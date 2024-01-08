@@ -149,9 +149,6 @@ function core_image_block_type_args($args, $name)
     if ($name == 'core/list') {
         $args['render_callback'] = 'modify_core_add_container';
     }
-    if ($name == 'core/buttons') {
-        $args['render_callback'] = 'modify_core_add_container';
-    }
 
     return $args;
 }
@@ -161,7 +158,7 @@ function modify_core_add_container($attributes, $content)
     ob_start();
     // $class = $block['className'];
     ?>
-<div class="container-xl px-0">
+<div class="container-xl">
     <?=$content?>
 </div>
 <?php

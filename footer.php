@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
         <div class="row pb-4">
             <div class="col-sm-6 col-lg-3 mb-2">
                 <a href="<?=get_home_url()?>"><img src="<?=get_stylesheet_directory_uri()?>/img/tw-logo.svg" alt="Tidey & Webb" class="logo img-fluid mb-4"></a>
-				<?=do_shortcode('[brb_collection id="554"]')?>
+				<?=do_shortcode('[brb_collection id="615"]')?>
             </div>
             <div class="col-sm-6 col-lg-3 mb-2">
                 <ul class="fa-ul">
@@ -47,7 +47,7 @@ defined('ABSPATH') || exit;
             <div class="col-md-6 mb-2 mb-md-0">
                 &copy; <?=date('Y')?> Tidey &amp; Webb Ltd. Registered in England No. 01329531                
             </div>
-            <div class="col-md-6 text-md-end">
+            <div class="col-md-6 text-md-right">
                 <a href="/privacy-policy/">Privacy Policy</a> | <a href="/cookie-policy/">Cookie Policy</a> <!-- | <a href="/terms-conditions/">Terms &amp; Conditions</a> --> | Site by <a href="https://www.lamcat.co.uk/" rel="nofollow noopener" target="_blank" class="lc" title="Site by Lamcat">Lamcat</a>
             </div>
         </div>

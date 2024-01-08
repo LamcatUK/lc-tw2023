@@ -2,22 +2,14 @@
     <div class="overlay--dark"></div>
     <div class="container my-auto">
         <div class="row">
-            <div class="col-lg-8 py-5 d-lg-flex align-items-center z-index-0">
-                <div class="text-center text-lg-start">
-                    <h1>
-                        <span class="hero__title"><?=get_field('title')?></span>
-                    <?php
-                    if (get_field('content')) {
-                        ?>
-                        <span class="hero__content mb-4"><?=get_field('content')?></span>
-                        <?php
-                    }
-                    ?>
-                    </h1>
+            <div class="col-lg-8 py-5 d-flex align-items-center z-index-0">
+                <div>
+                    <h1 class="hero__title"><?=get_field('title')?></h1>
+                    <div class="hero__content mb-4"><?=get_field('content')?></div>
                     <?php
                     if (get_field('show_cta')) {
                         ?>
-                        <a href="/get-a-quote/" class="btn btn-green mb-3">Get a Quote</a>
+                        <a href="/get-a-quote/" class="btn btn-green">Get a Quote</a>
                         <?php
                     }
                     ?>
