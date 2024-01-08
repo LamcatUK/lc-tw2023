@@ -3,7 +3,17 @@
 @import "header";
 @import "footer";
 @import "buttons";
+@import "forms";
+@import "news";
 @import "blocks/blocks";
+
+#main {
+    margin-top: calc(var(--h-top--sm) * -1);
+    @media (width >= 992px) {
+        // 80px;
+        margin-top: calc(var(--h-top) * -1);
+    }
+}
 
 a {
     color: var(--col-green-400);
@@ -48,8 +58,9 @@ a.anchor {
 }
 
 
-#breadcrumbs {
+.breadcrumbs {
     font-size: 0.889rem;
+    padding-top: 1rem;
 }
 
 

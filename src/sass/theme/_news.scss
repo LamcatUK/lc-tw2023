@@ -26,8 +26,6 @@
         object-fit: cover;
         object-position: center;
         transition: transform 300ms ease;
-        aspect-ratio: 16 / 9;
-        width: 100%;
     }
     &__inner {
         background-color: var(--col-green-600);

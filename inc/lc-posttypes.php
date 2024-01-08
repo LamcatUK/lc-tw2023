@@ -90,7 +90,7 @@ function cb_register_post_types() {
         "labels" => $labels,
         "description" => "",
         "public" => true,
-        "publicly_queryable" => false,
+        "publicly_queryable" => true,
         "show_ui" => true,
         "show_in_rest" => true,
         "rest_base" => "",

@@ -136,3 +136,12 @@
         color: var(--col-grey-400);
     }
 }
+
+.wp-block-button__link {
+    @extend .btn;
+    @extend .btn-green;
+}
+
+.wp-block-buttons {
+    margin-bottom: 1rem;
+}

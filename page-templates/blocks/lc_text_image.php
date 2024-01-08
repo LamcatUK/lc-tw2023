@@ -6,7 +6,7 @@ $bg = get_field('background_colour');
 <!-- text_image_5050 -->
 <section class="text_image_5050 py-4 bg--<?=$bg?>">
     <div class="container animated wow fadeIn">
-        <div class="row">
+        <div class="row g-4">
             <div class="col-lg-6 text_image_5050__content <?=$order_left?>">
                 <?php
                 if (get_field('title')) {

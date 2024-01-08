@@ -6,7 +6,7 @@ require_once LC_THEME_DIR . '/inc/lc-posttypes.php';
 require_once LC_THEME_DIR . '/inc/lc-taxonomies.php';
 require_once LC_THEME_DIR . '/inc/lc-utility.php';
 require_once LC_THEME_DIR . '/inc/lc-blocks.php';
-// require_once LC_THEME_DIR . '/inc/lc-news.php';
+require_once LC_THEME_DIR . '/inc/lc-news.php';
 // require_once LC_THEME_DIR . '/inc/lc-careers.php';
 
 
@@ -118,20 +118,20 @@ function lc_dashboard_widget_display()
 }
 
 
-add_filter('wpseo_breadcrumb_links', function( $links ) {
-    global $post;
-    if ( is_singular( 'post' ) ) {
-        $t = get_the_category($post->ID);
-        $breadcrumb[] = array(
-            'url' => '/guides/',
-            'text' => 'Guides',
-        );
+// add_filter('wpseo_breadcrumb_links', function( $links ) {
+//     global $post;
+//     if ( is_singular( 'post' ) ) {
+//         $t = get_the_category($post->ID);
+//         $breadcrumb[] = array(
+//             'url' => '/guides/',
+//             'text' => 'Guides',
+//         );
 
-        array_splice( $links, 1, -2, $breadcrumb );
-    }
-    return $links;
-}
-);
+//         array_splice( $links, 1, -2, $breadcrumb );
+//     }
+//     return $links;
+// }
+// );
 
 // remove discussion metabox
 function cc_gutenberg_register_files()
@@ -193,35 +193,20 @@ function LC_theme_enqueue()
 {
 	// Get the theme data.
 	$the_theme     = wp_get_theme();
-	$theme_version = $the_theme->get( 'Version' );
-
-	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	// Grab asset urls.
-	$theme_styles  = "/css/child-theme{$suffix}.css";
-	$theme_scripts = "/js/child-theme{$suffix}.js";
-	
-	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
     // wp_enqueue_style('lightbox-stylesheet', get_stylesheet_directory_uri() . '/css/lightbox.min.css', array(), $the_theme->get('Version'));
     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.min.js', array(), $the_theme->get('Version'), true);
+    wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js', array(), null, true);
-    wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css', array(), $the_theme->get('Version'));
-    wp_enqueue_style('slick-theme-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css', array(), $the_theme->get('Version'));
+
+    wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css', array(), true);
+    wp_enqueue_style('slick-theme-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css', array(), null, true);
     wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', array(), null, true);
     // wp_enqueue_style('aos-style', "https://unpkg.com/aos@2.3.1/dist/aos.css", array());
     // wp_enqueue_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), null, true);
-    wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), $the_theme->get('Version'), true);
-	wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . $theme_scripts, array('jquery'), $js_version, true );
+    wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), null, true);
 
-	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $css_version );
-	// wp_enqueue_script( 'jquery' );
-	
-	$js_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_scripts );
-	
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action('wp_enqueue_scripts', 'LC_theme_enqueue');
 
