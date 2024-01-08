@@ -22298,7 +22298,8 @@ svg.chevron {
   .faq .question::before {
     position: absolute;
     left: 0em;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 600;
     font-style: normal;
     font-size: 1rem;
     line-height: 1.5rem;
