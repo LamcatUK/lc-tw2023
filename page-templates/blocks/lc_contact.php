@@ -7,7 +7,7 @@
                     <li class="mb-4"><span class="fa-li"><i class="far fa-envelope"></i></span> <?=do_shortcode('[contact_email]')?></li>
                     <li class="mb-4"><span class="fa-li"><i class="fas fa-phone-alt"></i></span> <?=do_shortcode('[contact_phone]')?></li>
                     <li class="mb-4"><span class="fa-li"><i class="fas fa-fax"></i></span> <?=get_field('contact_fax','options')?></li>
-                    <li class="mb-4"><span class="fa-li"><i class="fas fa-map-marker-alt"></i></span> <a href="<?=get_field('google_directions','options')?>" target="_blank">Greenacres, Saucelands Lane, Shipley, Horsham RH13 8PU</a></li>
+                    <li class="mb-4"><span class="fa-li"><i class="fas fa-map-marker-alt"></i></span> <a href="<?=get_field('google_directions','options')?>" target="_blank">Andrews Hill Yard, Andrews Hill, Billingshurst, West Sussex, RH14 9JT</a></li>
                 </ul>
                 <div class="h3">Connect</div>
                 <div class="social-icons mb-2">
