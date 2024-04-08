@@ -76,7 +76,7 @@ get_header();
                     </div>
                     <div class="blog_grid__inner">
                         <h3 class="blog_grid__title mb-0"><?=get_the_title()?></h3>
-                        <div class="blog_grid__date"><?=$the_date?></div>
+                        <!-- <div class="blog_grid__date"><?=$the_date?></div> -->
                         <div class="blog_grid__content">
                             <div class="blog_grid__content__overlay"></div>
                             <?=wp_trim_words(get_the_content(get_the_ID()),18)?>
