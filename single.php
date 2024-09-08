@@ -58,6 +58,9 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
                         }
                         ?>
                     </section>
+                    <?php
+                    if (get_field('author_name','option') ?? null) {
+                        ?>
                     <aside>
                         <?=wp_get_attachment_image(get_field('author_photo','option'),'large',false,array('class'=>'author__image','alt' => get_field('author_name','option')))?>
                         <div>
@@ -75,6 +78,9 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
                             ?>
                         </div>
                     </aside>
+                        <?php
+                    }
+                    ?>
                 </article>
             </div>
             <div class="col-lg-3 order-1 order-lg-2">
