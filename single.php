@@ -3,6 +3,47 @@
 defined('ABSPATH') || exit;
 get_header();
 $img = get_the_post_thumbnail_url(get_the_ID(),'full');
+
+function get_people_post_by_author($author_id) {
+    // Query the 'people' CPT
+    $args = array(
+        'post_type'      => 'people',
+        'posts_per_page' => -1, // You can limit if needed
+        'post_status'    => 'publish',
+    );
+    
+    $people_posts = new WP_Query($args);
+
+    if ($people_posts->have_posts()) {
+        while ($people_posts->have_posts()) {
+            $people_posts->the_post();
+            
+            // Get the associated user object from the ACF field
+            $user_object = get_field('user'); // ACF 'user' field
+
+            // Check if the returned object is a WP_User, and get the ID
+            if ($user_object instanceof WP_User) {
+                $user_id = $user_object->ID;
+            } else {
+                // Handle if it's returning an ID directly (just in case)
+                $user_id = $user_object;
+            }
+
+            // Check if the user ID matches the author ID
+            if ($user_id == $author_id) {
+                return get_the_ID(); // Return the 'people' CPT post ID
+            }
+        }
+    }
+
+    // Reset the post data after custom query
+    wp_reset_postdata();
+
+    // Return false if no match is found
+    return false;
+}
+
+
 ?>
 <main id="main" class="blog">
     <?php
@@ -59,19 +100,22 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
                         ?>
                     </section>
                     <?php
-                    if (get_field('author_name','option') ?? null) {
+                    // get author information
+                    $post_author_id = get_the_author_meta('ID'); // Get the current post's author ID
+                    $people_post_id = get_people_post_by_author($post_author_id);
+                    
+                    if ($people_post_id) {
                         ?>
                     <aside>
-                        <?=wp_get_attachment_image(get_field('author_photo','option'),'large',false,array('class'=>'author__image','alt' => get_field('author_name','option')))?>
+                        <?=get_the_post_thumbnail($people_post_id, 'medium', array('class'=>'author__image', 'itemprop' => 'image', 'alt' => get_the_title()))?>
                         <div>
-                            <div class="author__name">Written by: <?=get_field('author_name','option')?></div>
-                            <div class="author__desc"><?=get_field('author_description','option')?></div>
+                            <div class="author__name">Written by: <?=get_the_title($people_post_id)?></div>
+                            <div class="author__desc"><?=get_the_content(null, false, $people_post_id)?></div>
                             <?php
-                            if (get_field('author_linkedin','option') ?? null) {
+                            if (get_field('linkedin_url',$people_post_id) ?? null) {
                                 ?>
                             <div class="author__link">
-                                Follow <?=get_field('author_name','option')?>: 
-                                <a href="<?=get_field('author_linkedin','option')?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                Follow <?=explode(' ', get_the_title($people_post_id))[0]?> on <a href="<?=get_field('linkedin_url',$people_post_id)?>" target="_blank">LinkedIn</a>
                             </div>
                                 <?php
                             }
@@ -147,15 +191,15 @@ $img = get_the_post_thumbnail_url(get_the_ID(),'full');
   "headline": "<?=get_the_title()?>",
   "author": {
     "@type": "Person",
-    "name": "<?=get_field('author_name','option')?>",
-    "image": "<?=wp_get_attachment_image_url(get_field('author_photo','option'),'full')?>", 
-    "description": "<?=get_field('author_description','option')?>",
-    "url": "<?=home_url('/about-us/')?>", 
+    "name": "<?=get_the_title($people_post_id)?>",
+    "image": "<?=get_the_post_thumbnail_url($people_post_id, 'medium')?>", 
+    "description": "<?=get_the_content(null,false,$people_post_id)?>",
+    "url": "<?=get_the_permalink($people_post_id)?>", 
     <?php
-    if (get_field('author_linkedin','option') ?? null) {
+    if (get_field('linkedin_url',$people_post_id) ?? null) {
         ?>
         "sameAs": [
-          "<?=get_field('author_linkedin','option')?>"
+          "<?=get_field('linkedin_url',$people_post_id)?>"
         ]
         <?php
     }
