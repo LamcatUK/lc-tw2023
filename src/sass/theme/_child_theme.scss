@@ -73,6 +73,36 @@ a.anchor {
     font-weight: 600;
 }
 
+.blog {
+    aside {
+        background-color: var(--col-green-200);
+        padding: 1rem;
+        margin-block: 2rem 1rem;
+        display: grid;
+        column-gap: 2rem;
+        @media (min-width:768px) {
+            grid-template-columns: min(30vw,150px) 1fr;
+        }
+        img {
+            aspect-ratio: 1;
+            width: 100%;
+            border-radius: 100vw;
+            object-fit: cover;
+            max-width: 150px;
+            margin-inline: auto;
+        }
+    }
+    .author {
+        &__name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        &__desc {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
 // show stuff that overflows horizontally
 // * {
 //     outline: 1px solid #f00 !important;

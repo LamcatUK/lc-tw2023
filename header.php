@@ -79,8 +79,9 @@ defined('ABSPATH') || exit;
     </script>
     <?php
     }
-    if (get_field('ga_property', 'options')) {
-        ?>
+    if (!is_user_logged_in()) {
+        if (get_field('ga_property', 'options')) {
+            ?>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async
         src="https://www.googletagmanager.com/gtag/js?id=<?=get_field('ga_property', 'options')?>">
@@ -96,10 +97,10 @@ defined('ABSPATH') || exit;
             '<?=get_field('ga_property', 'options')?>'
             );
     </script>
-    <?php
-    }
-    if (get_field('gtm_property', 'options')) {
-        ?>
+        <?php
+        }
+        if (get_field('gtm_property', 'options')) {
+            ?>
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
@@ -120,7 +121,8 @@ defined('ABSPATH') || exit;
             );
     </script>
     <!-- End Google Tag Manager -->
-    <?php
+        <?php
+        }
     }
     if (get_field('google_site_verification', 'options')) {
         echo '<meta name="google-site-verification" content="' . get_field('google_site_verification', 'options') . '" />';

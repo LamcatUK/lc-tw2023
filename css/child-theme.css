@@ -22534,6 +22534,36 @@ a.anchor {
   font-weight: 600;
 }
 
+.blog aside {
+  background-color: var(--col-green-200);
+  padding: 1rem;
+  margin-block: 2rem 1rem;
+  display: grid;
+  -moz-column-gap: 2rem;
+  column-gap: 2rem;
+}
+@media (min-width: 768px) {
+  .blog aside {
+    grid-template-columns: min(30vw, 150px) 1fr;
+  }
+}
+.blog aside img {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 100vw;
+  -o-object-fit: cover;
+  object-fit: cover;
+  max-width: 150px;
+  margin-inline: auto;
+}
+.blog .author__name {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.blog .author__desc {
+  margin-bottom: 0.5rem;
+}
+
 /*
 var all = document.getElementsByTagName("*"), i = 0, rect, docWidth = document.documentElement.offsetWidth;
 for (; i < all.length; i++) {
