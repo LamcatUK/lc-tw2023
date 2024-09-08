@@ -194,10 +194,10 @@ function get_people_post_by_author($author_id) {
     "name": "<?=get_the_title($people_post_id)?>",
     "image": "<?=get_the_post_thumbnail_url($people_post_id, 'medium')?>", 
     "description": "<?=get_the_content(null,false,$people_post_id)?>",
-    "url": "<?=get_the_permalink($people_post_id)?>", 
+    "url": "<?=get_the_permalink($people_post_id)?>"
     <?php
     if (get_field('linkedin_url',$people_post_id) ?? null) {
-        ?>
+        ?>,
         "sameAs": [
           "<?=get_field('linkedin_url',$people_post_id)?>"
         ]
