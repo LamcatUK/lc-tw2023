@@ -20,7 +20,7 @@ $bg = get_field('background_colour');
                 ?>
             </div>
             <div class="col-lg-6 text_image_5050__image d-grid <?= $order_right ?> px-lg-5">
-                <img class="img-fluid" src="<?= wp_get_attachment_image_url(get_field('image'), 'full') ?>">
+                <img class="img-fluid my-auto" src="<?= wp_get_attachment_image_url(get_field('image'), 'full') ?>">
             </div>
         </div>
     </div>
