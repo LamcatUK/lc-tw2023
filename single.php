@@ -193,7 +193,7 @@ function get_people_post_by_author($author_id) {
     "@type": "Person",
     "name": "<?=get_the_title($people_post_id)?>",
     "image": "<?=get_the_post_thumbnail_url($people_post_id, 'medium')?>", 
-    "description" => <?=get_post_meta($post_id, '_yoast_wpseo_metadesc', true) ?: wp_strip_all_tags(get_the_excerpt($post_id))?>,
+    "description": => "<?=get_post_meta($post_id, '_yoast_wpseo_metadesc', true) ?: wp_strip_all_tags(get_the_excerpt($post_id))?>",
     "url": "<?=get_the_permalink($people_post_id)?>"
     <?php
     if (get_field('linkedin_url',$people_post_id) ?? null) {
