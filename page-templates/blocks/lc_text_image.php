@@ -2,6 +2,10 @@
 $order_left = (get_field('order') == 'text') ? 'order-1 order-lg-1' : 'order-1 order-lg-2';
 $order_right = (get_field('order') == 'text') ? 'order-2 order-lg-2' : 'order-2 order-lg-1';
 $bg = get_field('background_colour');
+
+$image_id  = get_field('image');
+$image_url = wp_get_attachment_image_url($image_id, 'full');
+$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 ?>
 <!-- text_image_5050 -->
 <section class="text_image_5050 py-4 bg--<?= $bg ?>">
@@ -20,7 +24,9 @@ $bg = get_field('background_colour');
                 ?>
             </div>
             <div class="col-lg-6 text_image_5050__image d-grid <?= $order_right ?> px-lg-5">
-                <img class="img-fluid my-auto" src="<?= wp_get_attachment_image_url(get_field('image'), 'full') ?>">
+                <img class="img-fluid my-auto"
+                    src="<?php echo esc_url($image_url); ?>"
+                    alt="<?php echo esc_attr($image_alt); ?>">
             </div>
         </div>
     </div>
